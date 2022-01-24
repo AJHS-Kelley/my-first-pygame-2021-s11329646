@@ -1,4 +1,4 @@
-# Pygame Collision Detection practice, Erkiq King, January 24, 2022, 2:24pm, v0.8
+# Pygame Collision Detection practice, Erkiq King, January 24, 2022, 2:31pm, v0.9
 
 import pygame, sys, random
 from pygame.locals import *
@@ -76,3 +76,12 @@ while True:
 
         if event.type == MOUSEBUTTONUP:
             food.append(pygame.Rect(event.pos{0}, event.pos{1}, FOODSIZE, FOODSIZE))
+
+    foodCounter += 1
+    if foodCounter => NEWFOOD:
+        foodCounter = 0
+        foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH - FOODSIZE), FOODSIZE, FOODSIZE)) 
+
+
+    #draw white background on Window Surface.
+     windowsurface.fill(WHITE)           
