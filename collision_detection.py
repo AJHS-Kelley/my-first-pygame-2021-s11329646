@@ -1,4 +1,4 @@
-# Pygame Collision Detection practice, Erkiq King, January 24, 2022, 2:31pm, v0.9
+# Pygame Collision Detection practice, Erkiq King, January 24, 2022, 2:40pm, v1.0
 
 import pygame, sys, random
 from pygame.locals import *
@@ -84,4 +84,17 @@ while True:
 
 
     #draw white background on Window Surface.
-     windowsurface.fill(WHITE)           
+    windowsurface.fill(WHITE) 
+
+    # Move the player. 
+    if moveDown and player.bottom < WINDOWHIGHT
+        player.top += MOVESPEED
+    if moveUp and player.top > 0:
+        player.top -= MOVESPEED
+    if moveLeft and player.left > 0:
+        player.left -= MOVESPEED
+    if moveRight and player.right < WINDOWWIDTH
+        player.right += MOVESPEED
+
+    #draw the player on the surface.
+    pygame.draw.rect(windowsurface, BLACK, player)        
