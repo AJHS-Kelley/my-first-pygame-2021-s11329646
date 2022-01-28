@@ -1,10 +1,10 @@
-# Pygame Collision Detection practice, Erkiq King, January 26, 2022, 1:06pm, v1.1a-BUGFIX
+# pygame Collision Detection practice, Eriq King, January 26, 2022, 1:06pm, v1.1a-BUGFIX
 
 
 import pygame, sys, random
 from pygame.locals import *
 
-# Setup Pygame
+# Setup pygame
 pygame.init()
 mainClock = pygame.time.Clock() 
 
@@ -44,32 +44,32 @@ while True:
         if event.type == QUIT: 
             pygame.quit()
             sys.exit()
-        if event.type == KEY_DOWN:
+        if event.type == KEYDOWN:
             #change the keyboard variables.
-            if event.key == K_LEFT or event.key == K_a:
+            if event.key == KLEFT or event.key == K_a:
                 moveRight = False
                 moveLeft = True
-            if event.key == K_RIGHT or event.key == K_d:
+            if event.key == KRIGHT or event.key == K_d:
                 moveLeft = False
                 moveRight = True
             if event.key == K_UP or event.key == K_w:
                 moveDown = False
                 moveUp = True
-            if event.key == K_DOWN or event.key == K_s:  
+            if event.key == KDOWN or event.key == K_s:  
                 moveUp = False
                 moveDown = True
         if event.type == KEYUP:
-            if event.key == K_ESCAPE:
+            if event.key == KESCAPE:
                 pygame.quit()
                 sys.exit()
             #check to see if the player has stopped moving.
-            if event.key == K_LEFT or event.key == K_a: 
+            if event.key == KLEFT or event.key == K_a: 
                 moveleft = False
-            if event.key == K_RIGHT or event.key == K_d:
+            if event.key == KRIGHT or event.key == K_d:
                 moveRight = False
-            if event.key == K_UP or event.key == K_w:
+            if event.key == KUP or event.key == K_w:
                 moveUp = False
-            if event.key == K_DOWN or event.key == K_s: 
+            if event.key == KDOWN or event.key == K_s: 
                  moveDown = False
             if event.key == K_x: #Use x to teleport the player.
                 player.top = random.randint(0, WINDOWHEIGHT - player.height)
