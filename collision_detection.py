@@ -1,4 +1,4 @@
-# Pygame Collision Detection practice, Erkiq King, January 26, 2022, 1:06pm, v1.1
+# Pygame Collision Detection practice, Erkiq King, January 26, 2022, 1:06pm, v1.1a-BUGFIX
 
 import pygame, sys, random
 from pygame.locals import *
@@ -78,7 +78,7 @@ while True:
             food.append(pygame.Rect(event.pos{0}, event.pos{1}, FOODSIZE, FOODSIZE))
 
     foodCounter += 1
-    if foodCounter => NEWFOOD:
+    if foodCounter >= NEWFOOD:
         foodCounter = 0
         foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH - FOODSIZE), FOODSIZE, FOODSIZE)) 
 
