@@ -1,6 +1,6 @@
 # Pygame Collision Detection practice, Erkiq King, January 26, 2022, 1:06pm, v1.1a-BUGFIX
 
-from curses import KEY_DOWN
+
 import pygame, sys, random
 from pygame.locals import *
 
@@ -10,8 +10,8 @@ mainClock = pygame.time.Clock()
 
 #setup the pygame window
 WINDOWWIDTH = 400
-WINDOWHIGHT = 400
-windowsurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHIGHT), 0, 32)
+WINDOWHEIGHT = 400
+windowsurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
 pygame.display.set_caption('Collision Detection 2022')
 
 #setup colors.
@@ -24,7 +24,7 @@ foodCounter = 0
 NEWFOOD = 40
 FOODSIZE = 20
 player = pygame.Rect(300, 100, 50, 50)
-foods = {}
+foods = []
 
 for i in range(20):
     foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH - FOODSIZE),random.randint(0, WINDOWHEIGHT - FOODSIZE), FOODSIZE, FOODSIZE))
@@ -72,11 +72,11 @@ while True:
             if event.key == K_DOWN or event.key == K_s: 
                  moveDown = False
             if event.key == K_x: #Use x to teleport the player.
-                player.top = random.randint(0, WINDOWHIGHT - player.height)
+                player.top = random.randint(0, WINDOWHEIGHT - player.height)
                 player.left = random.randint(0, WINDOWWIDTH - player.width)        
 
         if event.type == MOUSEBUTTONUP:
-            food.append(pygame.Rect(event.pos{0}, event.pos{1}, FOODSIZE, FOODSIZE))
+            food.append(pygame.Rect(event.pos[0], event.pos[1], FOODSIZE, FOODSIZE))
 
     foodCounter += 1
     if foodCounter >= NEWFOOD:
@@ -88,7 +88,7 @@ while True:
     windowsurface.fill(WHITE) 
 
     # Move the player. 
-    if moveDown and player.bottom < WINDOWHIGHT:
+    if moveDown and player.bottom < WINDOWHEIGHT:
             player.top += MOVESPEED
     if moveUp and player.top > 0:
         player.top -= MOVESPEED
