@@ -1,5 +1,6 @@
 # Pygame Collision Detection practice, Erkiq King, January 26, 2022, 1:06pm, v1.1a-BUGFIX
 
+from curses import KEY_DOWN
 import pygame, sys, random
 from pygame.locals import *
 
@@ -25,7 +26,7 @@ FOODSIZE = 20
 player = pygame.Rect(300, 100, 50, 50)
 foods = {}
 
-for i in range(20)
+for i in range(20):
     foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH - FOODSIZE),random.randint(0, WINDOWHEIGHT - FOODSIZE), FOODSIZE, FOODSIZE))
     
 # Movement Variables
@@ -39,11 +40,11 @@ MOVESPEED = 6
 # Run te game loop.
 while True:
     #Check for events.
-    for event in pygame.event.get()
+    for event in pygame.event.get():
         if event.type == QUIT: 
             pygame.quit()
             sys.exit()
-        if event.type == KEYDOWN:
+        if event.type == KEY_DOWN:
             #change the keyboard variables.
             if event.key == K_LEFT or event.key == K_a:
                 moveRight = False
@@ -87,13 +88,13 @@ while True:
     windowsurface.fill(WHITE) 
 
     # Move the player. 
-    if moveDown and player.bottom < WINDOWHIGHT
+    if moveDown and player.bottom < WINDOWHIGHT:
             player.top += MOVESPEED
     if moveUp and player.top > 0:
         player.top -= MOVESPEED
     if moveLeft and player.left > 0:
         player.left -= MOVESPEED
-    if moveRight and player.right < WINDOWWIDTH
+    if moveRight and player.right < WINDOWWIDTH:
         player.right += MOVESPEED
 
     #draw the player on the surface.
@@ -107,3 +108,6 @@ while True:
     #Draw the food.
     for i in range(len(foods)):
         pygame.draw.rect(windowsurface, GREEN, foods[i])     
+    # Draw the window to the screen.
+    pygame.display.update()
+    mainClock.tick(40)        
